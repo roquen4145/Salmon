@@ -1,14 +1,31 @@
-use std::process::Command;
+use std::{process::Command};
 
-// take 4 arguments from the command line
 fn main() {
     // take github_url, branch, commit, test script path as arguments
     let args: Vec<String> = std::env::args().collect();
-    let github_url = &args[1];
-    let branch = &args[2];
-    let commit = &args[3];
-    let test_script = &args[4];
-
+    let github_url ;
+    let branch ;
+    let commit ;
+    let test_script;
+    // exit if not enough arguments
+    if args.len() < 4 {
+        println!("Usage: cargo run <github_url> <branch> <commit> <test_script_path>");
+        std::process::exit(1);
+    } else {
+        // assign arguments to variables
+        github_url = &args[1];
+        branch = &args[2];
+        commit = &args[3];
+        // test script path is optional
+        if args.len() == 4 {
+            // if no test script path is given, use default
+            test_script = "test.sh".to_string();
+        } else {
+            // if test script path is given, use it
+            test_script = args[4].clone();    
+        }   
+    }
+    
     // create a new directory to store the files
     let dir = tempfile::Builder::new()
         .prefix("rust-ci-")
@@ -33,7 +50,7 @@ fn main() {
     // until the test passes or we reach the root commit
     let mut current_commit = commit;
     loop {
-        let mut child = Command::new(test_script)
+        let mut child = Command::new(test_script.clone())
             .current_dir(dir.path())
             .spawn()
             .unwrap();
