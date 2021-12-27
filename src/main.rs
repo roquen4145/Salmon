@@ -117,7 +117,7 @@ fn run_test(salmon_config: &SalmonConfig, dir_path: PathBuf) {
             println!(
                 "Test failed on commit: {} with result : {}",
                 current_commit.id(),
-                status
+                status.code().unwrap()
             );
         }
         // find parent commit

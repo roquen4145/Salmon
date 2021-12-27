@@ -7,8 +7,8 @@
 result=`cat temp`
 
 # Wanted content is 'b'
-if [ "$result" = "b" ]; then
-    exit 0 # success
+if [ "$result" = "a" ]; then
+    exit 0 # exit with 0 when test is ok
 else
     exit 1 # failure, salmon will checkout to past commit
 fi
