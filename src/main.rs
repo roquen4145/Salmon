@@ -1,4 +1,4 @@
-use std::{process::Command, env::{current_dir, self}};
+use std::{process::Command, env};
 
 fn main() {
     // take github_url, branch, commit, test script path as arguments
@@ -29,8 +29,8 @@ fn main() {
     // print arguments
     println!("github_url: {}", github_url);
     println!("branch: {}", branch);
-    println!("commit: {}", commit);
-    println!("test_script: {}", test_script);
+    println!("start commit: {}", commit);
+    println!("test script name: {}", test_script);
 
     // setup directory
     let dir = format!("salmon-{}-{}", "Salmon-Test",branch);

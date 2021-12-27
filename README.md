@@ -8,6 +8,16 @@ This salmon takes four arguments : git url, branch, commit, test script path. Sa
 
 ## How to build & test
 ``` bash
-cargo build  
-cargo run <github url> <branch name> <commit hash> <test script path>
+cargo run <github url> <branch name> <commit hash> <test script name = "test.sh">
+```
+After get binary, you can run it with 
+``` bash
+./salmon <github url> <branch name> <commit hash> <test script name = "test.sh">
+```
+test script name is based on the name of the test script in the git repository.
+
+
+## Example
+``` bash
+cargo run https://github.com/roquen4145/Salmon-Test test d07f83fc3e83bcbc1750fd6782fa5faeaa75cdc8 test.sh
 ```
