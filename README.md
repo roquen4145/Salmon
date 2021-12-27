@@ -8,7 +8,7 @@ Salmon is a tool to help you find the start of the bug by automating checkout an
 
 ## How it works
 
-This salmon takes four arguments : git url, branch, commit, test script path. Salmon clones git repository with given branch, and checkout the given commit. Then it makes test with given test script name. When the test fails, salmon goes up to its parent commit and test again. It will be repeated until test succeed
+This salmon takes four arguments : git url, branch, commit, test script name. Salmon clones git repository with given branch, and checkout the given commit. Then it makes test with given test script name. When the test fails, salmon goes up to its parent commit and test again. It will be repeated until test succeed
 
 Before running salmon, you should make sure the test script is in the same directory as 'salmon.sh'. and 'salmon.sh' must exit with non-zero exit code when test failed.
 
