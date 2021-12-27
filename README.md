@@ -1,7 +1,10 @@
 # Salmon
 
 Like salmon leaping up the fall, this program goes up the git log until the test succeed.  
-You can easily find the start point of test failure by using salmon.
+
+Nowadays, there are many tools to test every code before and after commit to git. But when you forgot to add test for specific feature, it's hard to know when the feature broken for the first time. 
+
+Salmon is a tool to help you find the start of the bug by automating checkout and test.
 
 ## How it works
 
@@ -19,12 +22,14 @@ If you edited 'salmon.sh' script, you can also run it without script name.
 
 
 ## Example
+Given : git repository which has commit history, and there is a test failed at recent commit.
+
 ``` bash
 # run with default test script
 cargo run https://github.com/roquen4145/Salmon-Test test 9586101ce7297a4fc39e7a0f62e96806ed3d7c7a
 ```
 ### result
-SalmonConfig {
+SalmonConfig {  
     github_url: "https://github.com/roquen4145/Salmon-Test",  
     branch: "test",  
     commit: "9586101ce7297a4fc39e7a0f62e96806ed3d7c7a",  
